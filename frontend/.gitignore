@@ -44,6 +44,9 @@ __pycache__/
 /backend/venv_test/
 /backend/.venv/
 /backend/.venv_test/
+/backend/env/
+/backend/.conda/
+/backend/venv_test
 
 # ============================
 # Flask specific
