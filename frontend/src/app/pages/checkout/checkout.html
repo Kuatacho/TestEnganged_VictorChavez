@@ -1,13 +1,14 @@
 <div class="app-shell">
   <div class="product-card" style="max-width:760px; width:100%">
     <div style="flex:1; padding:1.25rem;">
-      <h1 class="product-title">Checkout</h1>
+      <h1 class="product-title">Formulario de confirmación de compra</h1>
       <p class="product-desc">Completa tus datos para finalizar la compra. Recibirás un email de confirmación.</p>
-
+      <br>
       <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" class="mt-6 form-card">
 
         <div class="mb-4">
           <label for="name" class="block text-sm font-semibold mb-2">Nombre</label>
+
           <input type="text" id="name" formControlName="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-transparent border-gray-700 text-sm">
           <div *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched" class="text-red-400 text-sm mt-1">
             <span *ngIf="checkoutForm.get('name')?.hasError('required')">El nombre es requerido.</span>
