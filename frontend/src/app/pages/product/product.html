@@ -1,0 +1,22 @@
+<div class="app-shell">
+  <div *ngIf="product" class="product-card">
+    <div class="product-image">
+      <img [src]="product.image_url" [alt]="product.name">
+    </div>
+    <div class="product-body">
+      <div>
+        <div class="product-title">{{ product.name }}</div>
+        <div class="product-price">{{ product.price | currency:'USD' }}</div>
+        <div class="product-desc">{{ product.description }}</div>
+      </div>
+
+      <div style="display:flex; gap:0.5rem; justify-content:flex-end;">
+        <a [routerLink]="['/checkout']" [queryParams]="{ product_id: product.id }" class="carousel-btn">Comprar ahora</a>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!product" class="text-center py-8">
+    <p class="text-2xl text-gray-500">Producto no encontrado</p>
+  </div>
+</div>

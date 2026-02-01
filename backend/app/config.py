@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Clave secreta para la aplicación
-SECRET_KEY = os.environ.get('SECRET_KEY') or 'una-clave-secreta-muy-dificil-de-adivinar'
+SECRET_KEY = os.environ.get('SECRET_KEY') or 'misecreto123'
 
 # Configuración de la base de datos PostgreSQL
 SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'postgresql://user:password@localhost/dbname'

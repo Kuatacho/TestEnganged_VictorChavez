@@ -1,0 +1,107 @@
+# ============================
+# Builds / Compiled output
+# ============================
+/dist/
+/tmp/
+/out-tsc/
+/bazel-out/
+
+# ============================
+# Node / Frontend
+# ============================
+/node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ============================
+# Angular
+# ============================
+/.angular/
+/.angular/cache/
+
+# ============================
+# Python / Flask
+# ============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.pytype/
+
+# ============================
+# Virtual Environments
+# ============================
+/venv/
+/.venv/
+/env/
+/.conda/
+/backend/venv/
+/backend/venv_test/
+/backend/.venv/
+/backend/.venv_test/
+
+# ============================
+# Flask specific
+# ============================
+instance/
+.webassets-cache
+.flaskenv
+.env
+.env.*
+*.log
+
+# ============================
+# Database
+# ============================
+*.sqlite3
+*.db
+
+# ============================
+# Coverage / Tests
+# ============================
+/coverage/
+htmlcov/
+.tox/
+.nox/
+
+# ============================
+# IDEs and Editors
+# ============================
+.idea/
+.project
+.classpath
+.c9/
+.settings/
+*.launch
+*.sublime-workspace
+
+# ============================
+# VS Code
+# ============================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# ============================
+# Misc
+# ============================
+.sass-cache/
+.connect.lock
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/
+
+# ============================
+# System
+# ============================
+.DS_Store
+Thumbs.db

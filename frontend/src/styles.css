@@ -1,0 +1,102 @@
+/*@import "tailwindcss";*/
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #0f1724; /* dark navy */
+  --card: #0b1220;
+  --text: #e6eef8;
+  --muted: #9fb0c8;
+  --accent: #4f46e5;
+}
+
+html,body{height:100%;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0;
+}
+
+/* center content and make a single-screen static feeling */
+.app-shell{
+  height:calc(100vh - 80px); /* leave space for header */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1.5rem;
+  box-sizing:border-box;
+}
+
+main{min-height:calc(100vh - 80px); display:flex; align-items:center; justify-content:center}
+
+.product-card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+  border-radius:14px;
+  width:min(900px,94vw);
+  max-width:1100px;
+  overflow:hidden;
+  display:flex;
+  gap:1.25rem;
+  align-items:center;
+  padding:1rem;
+}
+
+.product-image{flex:1 1 55%;}
+.product-image img{width:100%; height:420px; object-fit:cover; display:block; border-radius:8px}
+.product-body{flex:1 1 45%; padding:2rem; display:flex; flex-direction:column; justify-content:center; text-align:center}
+
+.product-title{font-size:2rem; font-weight:800}
+.product-price{font-size:1.75rem; color:var(--accent); margin-top:0.75rem}
+.product-desc{color:var(--muted); margin-top:1rem; font-size:1.05rem}
+
+.carousel-controls{display:flex; gap:0.5rem; justify-content:center; margin-top:1rem}
+.carousel-btn{background:rgba(255,255,255,0.03); color:var(--text); border:none; padding:0.5rem 0.75rem; border-radius:8px; cursor:pointer}
+
+/* checkout and forms */
+.form-card{background:transparent; border-radius:8px}
+input,button,textarea{font-family:inherit}
+
+/* small screens adjustment */
+@media (max-width:640px){
+  .product-card{flex-direction:column}
+  .product-image{height:280px}
+}
+
+/* card hover and controls polish */
+.product-card:hover{ transform: translateY(-6px); transition: transform 220ms cubic-bezier(.2,.8,.2,1) }
+.carousel-btn{ border:1px solid rgba(255,255,255,0.06); padding:0.8rem 1.1rem; background:rgba(255,255,255,0.02); color:var(--text); font-weight:600 }
+
+/* primary buy button green */
+.carousel-btn.buy{ background: linear-gradient(90deg,#10b981,#059669); color:white; border:none }
+.carousel-btn.buy:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(6,95,70,0.3) }
+
+/* header larger */
+.header .container{padding:1rem 1rem}
+.header h2{font-size:1.8rem}
+
+/* home title center */
+.container h1{ text-align:center; font-size:2.4rem; margin-bottom:0 }
+
+/* Centering global container and page content */
+.container{ max-width:1100px; margin:0 auto; padding:0 1rem; display:flex; flex-direction:column; align-items:center }
+
+/* Hero card sizing and centering */
+.product-card.hero{ width: min(920px,96vw); margin: 1rem auto; }
+.product-card{ margin: 0 auto }
+
+/* form centering */
+.form-card{ max-width:640px; margin:0 auto }
+
+/* success page */
+.success-box{background:var(--card); padding:2rem; border-radius:12px; text-align:center}
+.success-title{font-size:1.75rem; font-weight:700}
+.success-sub{color:var(--muted); margin-top:0.5rem}
+
+
