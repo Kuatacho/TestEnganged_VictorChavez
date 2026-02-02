@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Instalar dependencias del sistema necesarias para psycopg2
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends build-essential libpq-dev gcc \
+    && apt-get install -y --no-install-recommends build-essential libpq-dev gcc dos2unix \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar e instalar dependencias de Python
@@ -19,8 +19,10 @@ RUN pip install --upgrade pip \
 # Copiar el código de la aplicación
 COPY . /app
 
+# Convertir finales de línea a LF y dar permiso
+RUN dos2unix /app/start.sh || true
+RUN chmod +x /app/start.sh
+
 EXPOSE 5000
 
-# Hacer script ejecutable y usarlo para esperar a Postgres antes de iniciar
-RUN chmod +x /app/start.sh
 CMD ["/app/start.sh"]
