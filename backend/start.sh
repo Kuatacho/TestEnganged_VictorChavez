@@ -5,11 +5,21 @@ set -e
 host="${DB_HOST:-db}"
 port="${DB_PORT:-5432}"
 
-# Use nc if available, otherwise use bash tcp check fallback
-until (nc -z "$host" "$port" 2>/dev/null) || (echo > /dev/tcp/$host/$port 2>/dev/null); do
-  echo "Waiting for postgres at $host:$port..."
-  sleep 1
-done
+# Use Python to check TCP connectivity (portable across images)
+echo "Waiting for postgres at $host:$port..."
+python - <<'PY'
+import socket, time, os
+host = os.environ.get('DB_HOST', 'db')
+port = int(os.environ.get('DB_PORT', '5432'))
+while True:
+    try:
+        s = socket.create_connection((host, port), timeout=1)
+        s.close()
+        break
+    except Exception:
+        print(f"Waiting for postgres at {host}:{port}...")
+        time.sleep(1)
+PY
 
 # Run migrations / create DB tables
 python -c "from app.models.base import init_db; init_db()"
