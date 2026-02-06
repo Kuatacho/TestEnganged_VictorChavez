@@ -79,8 +79,10 @@ class OrderService:
             )
             
             # Crear el objeto Message.
+            sender = app.config.get('MAIL_DEFAULT_SENDER') or 'no-reply@minicommerce.local'
             msg = Message(
                 subject,
+                sender=sender,
                 recipients=[order.email],
                 body=body
             )

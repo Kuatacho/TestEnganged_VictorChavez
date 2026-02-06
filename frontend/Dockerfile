@@ -14,7 +14,7 @@ FROM nginx:stable-alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy built static files into nginx html directory
-COPY --from=builder /app/dist/frontend/ /usr/share/nginx/html/
+COPY --from=builder /app/dist/frontend/browser/ /usr/share/nginx/html/
 
 # Copy custom nginx config to enable SPA fallback and proxy /api
 COPY nginx.conf /etc/nginx/conf.d/default.conf

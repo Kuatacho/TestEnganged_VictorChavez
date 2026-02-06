@@ -36,6 +36,13 @@ def create_app():
         # Llama a la función que crea las tablas de la base de datos
         # si estas no existen.
         init_db()
+        # Inserta productos por defecto si la tabla está vacía (seed)
+        try:
+            from app.services.product_service import ProductService
+            ProductService.seed_products()
+        except Exception:
+            # No detener el arranque si falla el seeding
+            pass
 
     # --- Registro de Blueprints (Rutas) ---
     # Importar los blueprints que contienen las rutas de la aplicación.
